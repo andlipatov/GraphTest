@@ -228,8 +228,8 @@ namespace GraphTest
         private void SetPath(Vertex startVertex, Vertex mineVertex, Vertex baseVertex)
         {
             _path.Clear();
-            _path.AddRange(_graph.GetShortestVerticesPath(startVertex, mineVertex));
-            _path.AddRange(_graph.GetShortestVerticesPath(mineVertex, baseVertex).Skip(1));
+            _path.AddRange(_graph.GetShortestPath(startVertex, mineVertex));
+            _path.AddRange(_graph.GetShortestPath(mineVertex, baseVertex).Skip(1));
 
             _vertex1 = _path[0];
             _vertex2 = _path[1];

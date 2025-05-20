@@ -61,20 +61,21 @@ namespace GraphTest
             return _shortestMap[startVertex][finishVertex];
         }
 
-        public List<Vertex> GetShortestVerticesPath(Vertex startVertex, Vertex finishVertex)
+        public List<Vertex> GetShortestPath(Vertex startVertex, Vertex finishVertex)
         {
-            List<Vertex> verticesPath = new();
+            List<Vertex> path = new(_vertices.Count);
             Vertex previous = finishVertex;
 
             while (previous != startVertex)
             {
-                verticesPath.Insert(0, previous);
+                path.Add(previous);
                 previous = _previousMap[startVertex][previous];
             }
 
-            verticesPath.Insert(0, previous);
+            path.Add(startVertex);
+            path.Reverse();
 
-            return verticesPath;
+            return path;
         }
     }
 }
